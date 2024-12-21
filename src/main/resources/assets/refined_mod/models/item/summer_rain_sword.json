@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "refined_mod:item/summer_rain_sword"
+  }
+}
