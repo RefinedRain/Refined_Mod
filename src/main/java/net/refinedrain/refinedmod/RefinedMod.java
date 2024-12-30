@@ -29,7 +29,6 @@ public class RefinedMod {
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-
         ExampleSpellRegistry.register(modEventBus);
         ItemRegistry.register(modEventBus);
         modEventBus.addListener(this::addCreative);

@@ -2,6 +2,8 @@ package net.refinedrain.refinedmod.spells;
 
 
 
+import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
+import io.redspace.ironsspellbooks.entity.spells.flame_strike.FlameStrike;
 import net.refinedrain.refinedmod.RefinedMod;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -12,15 +14,12 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
-import net.refinedrain.refinedmod.entity.spells.frost_strike.FrostStrike;
-import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
@@ -29,6 +28,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.refinedrain.refinedmod.entity.spells.frost_strike.FrostStrikeEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,6 +36,7 @@ import java.util.Optional;
 
 @AutoSpellConfig
 public class FrostStrikeSpell extends AbstractSpell {
+    private final ResourceLocation spellId = new ResourceLocation(RefinedMod.MOD_ID, "frost_strike");
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.RARE)
@@ -56,7 +57,6 @@ public class FrostStrikeSpell extends AbstractSpell {
         this.baseManaCost = 30;
     }
 
-    private final ResourceLocation spellId = new ResourceLocation(RefinedMod.MOD_ID, "frost_strike");
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
@@ -110,12 +110,13 @@ public class FrostStrikeSpell extends AbstractSpell {
             }
         }
         boolean mirrored = playerMagicData.getCastingEquipmentSlot().equals(SpellSelectionManager.OFFHAND);
-        FrostStrike frostStrike = new FrostStrike(level, mirrored);
+        FrostStrikeEntity frostStrike = new FrostStrikeEntity(level, mirrored);
         frostStrike.moveTo(hitLocation);
         frostStrike.setYRot(entity.getYRot());
         frostStrike.setXRot(entity.getXRot());
         level.addFreshEntity(frostStrike);
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+
     }
 
     @Override
