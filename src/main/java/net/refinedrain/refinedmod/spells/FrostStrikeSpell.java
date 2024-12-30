@@ -3,7 +3,6 @@ package net.refinedrain.refinedmod.spells;
 
 
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
-import io.redspace.ironsspellbooks.entity.spells.flame_strike.FlameStrike;
 import net.refinedrain.refinedmod.RefinedMod;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -39,7 +38,7 @@ public class FrostStrikeSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(RefinedMod.MOD_ID, "frost_strike");
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
-            .setMinRarity(SpellRarity.RARE)
+            .setMinRarity(SpellRarity.COMMON)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(5)
             .setCooldownSeconds(10)

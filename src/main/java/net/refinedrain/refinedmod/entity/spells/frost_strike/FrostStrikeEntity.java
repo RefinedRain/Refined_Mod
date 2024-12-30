@@ -1,7 +1,6 @@
 package net.refinedrain.refinedmod.entity.spells.frost_strike;
 
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
-import net.refinedrain.refinedmod.registry.EntityRegistry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -13,38 +12,38 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
+import net.refinedrain.refinedmod.entity.ModEntities;
 
 import java.util.Optional;
 
-public class FrostStrike extends AoeEntity {
-    private static final EntityDataAccessor<Boolean> DATA_MIRRORED = SynchedEntityData.defineId(FrostStrike.class, EntityDataSerializers.BOOLEAN);
+public class FrostStrikeEntity extends AoeEntity {
 
-    public FrostStrike(EntityType<? extends Projectile> pEntityType, Level pLevel) {
+    private static final EntityDataAccessor<Boolean> DATA_MIRRORED = SynchedEntityData.defineId(FrostStrikeEntity.class, EntityDataSerializers.BOOLEAN);
+    public FrostStrikeEntity(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
     LivingEntity target;
 
-    public FrostStrike(Level level, boolean mirrored) {
-        this(EntityRegistry.FROST_STRIKE.get(), level);
+    public FrostStrikeEntity(Level level, boolean mirrored) {
+        this(ModEntities.FROST_STRIKE_ENTITY.get(), level);
         if (mirrored) {
             this.getEntityData().set(DATA_MIRRORED, true);
         }
     }
-
     @Override
     public void applyEffect(LivingEntity target) {
     }
 
     public final int ticksPerFrame = 2;
-    public final int deathTime = ticksPerFrame * 4;
+    public final int deathtime = ticksPerFrame * 4;
 
     @Override
     public void tick() {
         if (!firstTick) {
             firstTick = true;
         }
-        if (tickCount >= deathTime)
+        if (tickCount >= deathtime)
             discard();
     }
 
@@ -56,6 +55,7 @@ public class FrostStrike extends AoeEntity {
 
     public boolean isMirrored() {
         return this.getEntityData().get(DATA_MIRRORED);
+
     }
 
     @Override
@@ -85,12 +85,5 @@ public class FrostStrike extends AoeEntity {
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
-}
-
-
-
-
-
-
-
+    }
 }

@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.IronsSpellbooks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.refinedrain.refinedmod.entity.ModEntities;
 import net.refinedrain.refinedmod.registry.ExampleSpellRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -23,13 +24,14 @@ import org.slf4j.Logger;
 public class RefinedMod {
 
     public static final String MOD_ID = "refined_mod";
-    private static final Logger LOGGER = LogUtils.getLogger();
 
+    private static final Logger LOGGER = LogUtils.getLogger();
     public RefinedMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         ExampleSpellRegistry.register(modEventBus);
+        ModEntities.register(modEventBus);
         ItemRegistry.register(modEventBus);
         modEventBus.addListener(this::addCreative);
     }
