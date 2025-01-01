@@ -12,7 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
-import net.refinedrain.refinedmod.entity.ModEntities;
+import net.refinedrain.refinedmod.registry.EntityRegistry;
 
 import java.util.Optional;
 
@@ -26,7 +26,7 @@ public class FrostStrikeEntity extends AoeEntity {
     LivingEntity target;
 
     public FrostStrikeEntity(Level level, boolean mirrored) {
-        this(ModEntities.FROST_STRIKE_ENTITY.get(), level);
+        this(EntityRegistry.FROST_STRIKE_ENTITY.get(), level);
         if (mirrored) {
             this.getEntityData().set(DATA_MIRRORED, true);
         }

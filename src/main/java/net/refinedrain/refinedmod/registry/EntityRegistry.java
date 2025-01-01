@@ -17,6 +17,7 @@ public class EntityRegistry {
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
     }
+
     public static final RegistryObject<EntityType<FrostStrikeEntity>> FROST_STRIKE_ENTITY =
             ENTITIES.register("frost_strike", () -> EntityType.Builder.<FrostStrikeEntity>of(FrostStrikeEntity::new, MobCategory.MISC)
                     .sized(5f, 1f)
