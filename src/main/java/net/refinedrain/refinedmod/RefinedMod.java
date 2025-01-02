@@ -30,7 +30,6 @@ public class RefinedMod {
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         ExampleSpellRegistry.register(modEventBus);
-        ModEntities.register(modEventBus);
         ItemRegistry.register(modEventBus);
         modEventBus.addListener(this::addCreative);
     }
@@ -49,7 +48,7 @@ public class RefinedMod {
     }
 
     public static ResourceLocation id(@NotNull String path) {
-        return new ResourceLocation(IronsSpellbooks.MODID, path);
+        return new ResourceLocation(RefinedMod.MOD_ID, path);
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

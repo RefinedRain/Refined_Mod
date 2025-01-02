@@ -9,8 +9,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-
-
 public class ItemRegistry {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RefinedMod.MOD_ID);
 
@@ -18,6 +16,9 @@ public class ItemRegistry {
         ITEMS.register(eventBus);
     }
 
-    public static final RegistryObject<Item> SUMMER_RAIN_SWORD = ITEMS.register("summer_rain_sword", () -> new SummerRainSword(new SpellDataRegistryHolder[]{new SpellDataRegistryHolder(ExampleSpellRegistry.FROST_STRIKE_SPELL, 1)}));
-
+    public static final RegistryObject<Item> SUMMER_RAIN_SWORD = ITEMS.register("summer_rain_sword",
+            () -> new SummerRainSword(new SpellDataRegistryHolder[]{
+                    // Pass FROST_STRIKE_SPELL directly as it's already a RegistryObject
+                    new SpellDataRegistryHolder(ExampleSpellRegistry.FROST_STRIKE_SPELL, 1)
+            }));
 }
