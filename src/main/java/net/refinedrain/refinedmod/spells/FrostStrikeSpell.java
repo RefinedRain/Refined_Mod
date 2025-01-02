@@ -53,7 +53,7 @@ public class FrostStrikeSpell extends AbstractSpell {
         this.baseSpellPower = 4;
         this.spellPowerPerLevel = 2;
         this.castTime = 10;
-        this.baseManaCost = 30;
+        this.baseManaCost = 35;
     }
 
 
@@ -76,7 +76,7 @@ public class FrostStrikeSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(SoundRegistry.ICE_CAST.get());
+        return Optional.of(SoundRegistry.FLAMING_STRIKE_SWING.get());
     }
 
     @Override

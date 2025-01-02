@@ -11,7 +11,7 @@ import net.refinedrain.refinedmod.RefinedMod;
 import net.refinedrain.refinedmod.entity.spells.frost_strike.FrostStrikeEntity;
 
 public class EntityRegistry {
-    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, RefinedMod.MOD_ID);
+    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, "refined_mod");
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
