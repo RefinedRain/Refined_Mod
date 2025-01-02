@@ -41,7 +41,7 @@ public class FrostStrikeSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.COMMON)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(5)
-            .setCooldownSeconds(10)
+            .setCooldownSeconds(15)
             .build();
 
     @Override
@@ -49,11 +49,11 @@ public class FrostStrikeSpell extends AbstractSpell {
 
 
     public FrostStrikeSpell() {
-        this.manaCostPerLevel = 10;
+        this.manaCostPerLevel = 15;
         this.baseSpellPower = 4;
         this.spellPowerPerLevel = 2;
         this.castTime = 10;
-        this.baseManaCost = 30;
+        this.baseManaCost = 35;
     }
 
 
@@ -76,7 +76,7 @@ public class FrostStrikeSpell extends AbstractSpell {
 
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
-        return Optional.of(SoundRegistry.ICE_CAST.get());
+        return Optional.of(SoundRegistry.FLAMING_STRIKE_SWING.get());
     }
 
     @Override
