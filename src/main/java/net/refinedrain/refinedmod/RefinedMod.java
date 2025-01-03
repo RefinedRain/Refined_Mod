@@ -1,7 +1,6 @@
 package net.refinedrain.refinedmod;
 
 import com.mojang.logging.LogUtils;
-import io.redspace.ironsspellbooks.IronsSpellbooks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,16 +23,16 @@ import org.slf4j.Logger;
 public class RefinedMod {
 
     public static final String MOD_ID = "refined_mod";
-
     private static final Logger LOGGER = LogUtils.getLogger();
+
     public RefinedMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         EntityRegistry.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
-        MinecraftForge.EVENT_BUS.register(this);
         ExampleSpellRegistry.register(modEventBus);
         ItemRegistry.register(modEventBus);
         modEventBus.addListener(this::addCreative);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

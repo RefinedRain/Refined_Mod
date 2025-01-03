@@ -3,7 +3,6 @@ package net.refinedrain.refinedmod.registry;
 import net.refinedrain.refinedmod.RefinedMod;
 import net.refinedrain.refinedmod.items.SummerRainSword;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import net.refinedrain.refinedmod.registry.ExampleSpellRegistry;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,8 +16,5 @@ public class ItemRegistry {
         ITEMS.register(eventBus);
     }
 
-    public static final RegistryObject<Item> SUMMER_RAIN_SWORD = ITEMS.register("summer_rain_sword",
-            () -> new SummerRainSword(new SpellDataRegistryHolder[]{
-                    new SpellDataRegistryHolder(ExampleSpellRegistry.FROST_STRIKE_SPELL, 1)
-            }));
+    public static final RegistryObject<Item> SUMMER_RAIN_SWORD = ITEMS.register("summer_rain_sword", () -> new SummerRainSword(new SpellDataRegistryHolder[]{new SpellDataRegistryHolder(ExampleSpellRegistry.FROST_STRIKE_SPELL, 1)}));
 }
