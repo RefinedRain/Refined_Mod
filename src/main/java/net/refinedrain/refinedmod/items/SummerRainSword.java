@@ -23,6 +23,6 @@ public class SummerRainSword extends MagicSwordItem {
                         AttributeRegistry.COOLDOWN_REDUCTION.get(),
                         new AttributeModifier(UUID.fromString("212b5a66-2b43-4c18-ab05-6de0cc4d64d3"), "Weapon Modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE)
                 ),
-                ItemPropertiesHelper.equipment(1).rarity(Rarity.RARE));
+                ItemPropertiesHelper.equipment(1).rarity(Rarity.EPIC));
     }
 }
