@@ -2,6 +2,7 @@ package net.refinedrain.refinedmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.refinedrain.refinedmod.registry.EntityRegistry;
@@ -40,7 +41,9 @@ public class RefinedMod {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-   
+        if(event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ItemRegistry.SUMMER_RAIN_SWORD);
+        }
     }
 
     @SubscribeEvent
