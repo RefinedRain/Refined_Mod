@@ -16,13 +16,13 @@ import java.util.UUID;
 
 public class SummerRainSword extends MagicSwordItem {
     public SummerRainSword(SpellDataRegistryHolder[] imbuedSpells) {
-        super(Tiers.DIAMOND, 9, -2.4f, imbuedSpells,
+        super(Tiers.DIAMOND, 8, -2.4f, imbuedSpells,
                 Map.of(
                         AttributeRegistry.SPELL_POWER.get(),
                         new AttributeModifier(UUID.fromString("667ad88f-901d-4691-b2a2-3664e42026d3"), "Weapon modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE),
                         AttributeRegistry.COOLDOWN_REDUCTION.get(),
-                        new AttributeModifier(UUID.fromString("212b5a66-2b43-4c18-ab05-6de0cc4d64d3"), "Weapon Modifier", .15, AttributeModifier.Operation.MULTIPLY_BASE)
+                        new AttributeModifier(UUID.fromString("212b5a66-2b43-4c18-ab05-6de0cc4d64d3"), "Weapon Modifier", .10, AttributeModifier.Operation.MULTIPLY_BASE)
                 ),
-                ItemPropertiesHelper.equipment(1).rarity(Rarity.EPIC));
+                ItemPropertiesHelper.equipment(1).rarity(Rarity.RARE));
     }
 }
