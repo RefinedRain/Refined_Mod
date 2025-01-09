@@ -36,7 +36,6 @@ import java.util.Optional;
 @AutoSpellConfig
 public class FrostStrikeSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(RefinedMod.MOD_ID, "frost_strike");
-
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.COMMON)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)

@@ -1,8 +1,14 @@
 {
   "spell.refined_mod.frost_strike": "Frost Strike",
   "spell.refined_mod.frost_strike.guide": "Strike with an Icy Blade.",
+  "spell.refined_mod.moon_slash": "Moonlight Blade",
+  "spell.refined_mod.moon_slash.guide": "Summon a Moon Slash.",
 
   "ui.irons_spellbooks.damage": "%d Damage",
 
-  "item.refined_mod.summer_rain_sword": "Summer Rain Sword"
+  "item.refined_mod.summer_rain_sword": "Summerrain",
+  "item.refined_mod.flame_tongue_sword": "Flame_Tongue",
+
+
+  "creativetab.refined_tab": "Refined Mod Tab"
 }

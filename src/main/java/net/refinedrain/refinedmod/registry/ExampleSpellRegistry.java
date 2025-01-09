@@ -7,7 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.refinedrain.refinedmod.RefinedMod;
 import net.refinedrain.refinedmod.spells.FrostStrikeSpell;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import net.refinedrain.refinedmod.spells.FrostStrikeSpell;
+import net.refinedrain.refinedmod.spells.MoonSlashSpell;
 
 
 public class ExampleSpellRegistry {
@@ -21,5 +21,5 @@ public class ExampleSpellRegistry {
     }
 
     public static final RegistryObject<AbstractSpell> FROST_STRIKE_SPELL = registerSpell(new FrostStrikeSpell());
-
+    public static final RegistryObject<AbstractSpell> MOON_SLASH_SPELL = registerSpell(new MoonSlashSpell());
 }

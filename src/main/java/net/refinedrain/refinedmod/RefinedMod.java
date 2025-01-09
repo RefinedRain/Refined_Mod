@@ -32,8 +32,8 @@ public class RefinedMod {
         modEventBus.addListener(this::commonSetup);
         ExampleSpellRegistry.register(modEventBus);
         ItemRegistry.register(modEventBus);
-        modEventBus.addListener(this::addCreative);
         MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -43,6 +43,7 @@ public class RefinedMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ItemRegistry.SUMMER_RAIN_SWORD);
+            event.accept(ItemRegistry.FLAME_TONGUE_SWORD);
         }
     }
 
