@@ -16,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.refinedrain.refinedmod.registry.ItemRegistry;
+import net.refinedrain.refinedmod.registry.ParticleRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
@@ -32,6 +33,7 @@ public class RefinedMod {
         modEventBus.addListener(this::commonSetup);
         ExampleSpellRegistry.register(modEventBus);
         ItemRegistry.register(modEventBus);
+        ParticleRegistry.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }

@@ -52,7 +52,7 @@ public class FrostStrikeSpell extends AbstractSpell {
         this.baseSpellPower = 4;
         this.spellPowerPerLevel = 2;
         this.castTime = 10;
-        this.baseManaCost = 35;
+        this.baseManaCost = 30;
     }
 
 
