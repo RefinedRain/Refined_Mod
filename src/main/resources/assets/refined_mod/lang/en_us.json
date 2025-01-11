@@ -2,12 +2,13 @@
   "spell.refined_mod.frost_strike": "Frost Strike",
   "spell.refined_mod.frost_strike.guide": "Strike with an Icy Blade.",
   "spell.refined_mod.moon_slash": "Moonlight Blade",
-  "spell.refined_mod.moon_slash.guide": "Summon a Moon Slash.",
+  "spell.refined_mod.moon_slash.guide": "Summon a Sweeping wave of Moonlight.",
 
   "ui.irons_spellbooks.damage": "%d Damage",
 
   "item.refined_mod.summer_rain_sword": "Summerrain",
   "item.refined_mod.flame_tongue_sword": "Flame_Tongue",
+  "item.refined_mod.winter_spell_book": "Codocil_of_Winter",
 
 
   "creativetab.refined_tab": "Refined Mod Tab"

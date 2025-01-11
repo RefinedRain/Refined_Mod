@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "refined_mod:item/winter_spell_book"
+  }
+}

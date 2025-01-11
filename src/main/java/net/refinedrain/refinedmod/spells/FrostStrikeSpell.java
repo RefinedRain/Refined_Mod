@@ -37,7 +37,7 @@ import java.util.Optional;
 public class FrostStrikeSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(RefinedMod.MOD_ID, "frost_strike");
     private final DefaultConfig defaultConfig = new DefaultConfig()
-            .setMinRarity(SpellRarity.COMMON)
+            .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(SchoolRegistry.ICE_RESOURCE)
             .setMaxLevel(5)
             .setCooldownSeconds(15)
@@ -52,7 +52,7 @@ public class FrostStrikeSpell extends AbstractSpell {
         this.baseSpellPower = 4;
         this.spellPowerPerLevel = 2;
         this.castTime = 10;
-        this.baseManaCost = 35;
+        this.baseManaCost = 30;
     }
 
 

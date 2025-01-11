@@ -32,9 +32,8 @@ public class MoonSlashSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(SchoolRegistry.EVOCATION_RESOURCE)
             .setMaxLevel(5)
-            .setCooldownSeconds(10)
+            .setCooldownSeconds(15)
             .build();
-
 
     @Override
     public DefaultConfig getDefaultConfig() {
@@ -42,11 +41,11 @@ public class MoonSlashSpell extends AbstractSpell {
     }
 
     public MoonSlashSpell() {
-        this.manaCostPerLevel = 5;
+        this.manaCostPerLevel = 15;
         this.baseSpellPower = 10;
         this.spellPowerPerLevel = 1;
         this.castTime = 10;
-        this.baseManaCost = 25;
+        this.baseManaCost = 35;
     }
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
@@ -83,7 +82,7 @@ public class MoonSlashSpell extends AbstractSpell {
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         MoonSlashProjectile moonSlash = new MoonSlashProjectile(world, entity);
-        moonSlash.setPos(entity.getX(), entity.getY() + entity.getBbHeight() / 2.2, entity.getZ());
+        moonSlash.setPos(entity.getX(), entity.getY() + entity.getBbHeight() * 2.5 / 3.0, entity.getZ());
         moonSlash.shoot(entity.getLookAngle());
         moonSlash.setDamage(getSpellPower(spellLevel, entity));
         world.addFreshEntity(moonSlash);
@@ -98,6 +97,7 @@ public class MoonSlashSpell extends AbstractSpell {
     @Override
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.ONE_HANDED_HORIZONTAL_SWING_ANIMATION;
+
     }
 
     @Override

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "refined_mod:item/winter_spell_book_model"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "refined_mod:item/winter_spell_book_gui"
+    }
+  }
+}

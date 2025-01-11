@@ -39,32 +39,36 @@ public class MoonSlashRenderer extends EntityRenderer<MoonSlashProjectile> {
 
         entity.animationTime++;
 
-        float oldWith = (float) entity.oldBB.getXsize();
+        float oldWidth = (float) entity.oldBB.getXsize();
         float width = entity.getBbWidth();
-        width = oldWith + (width - oldWith) * Math.min(partialTicks, 1);
+        width = oldWidth + (width - oldWidth) * Math.min(partialTicks, 1);
 
-        drawSlash(pose, entity, bufferSource, light, width);
+        RenderType translucentRenderType = RenderType.entityTranslucent(getTextureLocation(entity));
+        VertexConsumer vertexConsumer = bufferSource.getBuffer(translucentRenderType);
+
+        drawSlash(pose, entity, vertexConsumer, light, width, entity.getAlpha());
 
         poseStack.popPose();
 
         super.render(entity, yaw, partialTicks, poseStack, bufferSource, light);
     }
 
-    private void drawSlash(Pose pose, MoonSlashProjectile entity, MultiBufferSource bufferSource, int light, float width) {
+    private void drawSlash(Pose pose, MoonSlashProjectile entity, VertexConsumer vertexConsumer, int light, float width, float alpha) {
         Matrix4f poseMatrix = pose.pose();
         Matrix3f normalMatrix = pose.normal();
 
-        VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE));
         float halfWidth = width * .5f;
 
-        consumer.vertex(poseMatrix, -halfWidth, 0.0f, -halfWidth).color(255, 255, 255, 255).uv(0.0f, 0.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
-        consumer.vertex(poseMatrix, halfWidth, 0.0f, -halfWidth).color(255, 255, 255, 255).uv(1.0f, 0.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
-        consumer.vertex(poseMatrix, halfWidth, 0.0f, halfWidth).color(255, 255, 255, 255).uv(1.0f, 1.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
-        consumer.vertex(poseMatrix, -halfWidth, 0.0f, halfWidth).color(255, 255, 255, 255).uv(0.0f, 1.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
+        int color = (int) (255 * alpha);
+
+        vertexConsumer.vertex(poseMatrix, -halfWidth, 0.0f, -halfWidth).color(255, 255, 255, color).uv(0.0f, 0.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
+        vertexConsumer.vertex(poseMatrix, halfWidth, 0.0f, -halfWidth).color(255, 255, 255, color).uv(1.0f, 0.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
+        vertexConsumer.vertex(poseMatrix, halfWidth, 0.0f, halfWidth).color(255, 255, 255, color).uv(1.0f, 1.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
+        vertexConsumer.vertex(poseMatrix, -halfWidth, 0.0f, halfWidth).color(255, 255, 255, color).uv(0.0f, 1.0f).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normalMatrix, 0f, 1f, 0f).endVertex();
     }
 
     @Override
     public ResourceLocation getTextureLocation(@NotNull MoonSlashProjectile entity) {
-        System.out.println("Texture Location: " + TEXTURE.toString());
-        return TEXTURE; }
+        return TEXTURE;
+    }
 }
