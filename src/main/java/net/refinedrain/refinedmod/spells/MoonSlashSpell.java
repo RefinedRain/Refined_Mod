@@ -43,7 +43,7 @@ public class MoonSlashSpell extends AbstractSpell {
     public MoonSlashSpell() {
         this.manaCostPerLevel = 15;
         this.baseSpellPower = 10;
-        this.spellPowerPerLevel = 1;
+        this.spellPowerPerLevel = 2;
         this.castTime = 10;
         this.baseManaCost = 35;
     }
