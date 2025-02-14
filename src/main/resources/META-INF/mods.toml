@@ -1,57 +1,86 @@
+# This is the mods.toml file for the Refined Mod.
+# It contains the data relating to the loading mods.
+# The overall format is standard TOML format, v0.5.0.
 
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
-loaderVersion="${loader_version_range}" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
-license="${mod_license}"
 
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[1.0,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+
+# The license for your mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
+# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+license="MIT"
+
+# A URL to refer people to when problems occur with this mod
+issueTrackerURL="https://example.com/issues" #optional
+
+# A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
-
+# The modid of the mod
 modId="refined_mod" #mandatory
+# The version number of the mod
 version="1.0.0" #mandatory
+# A display name for the mod
 displayName="Refined Mod" #mandatory
+# A URL for the "homepage" for this mod, displayed in the mod UI
+displayURL="https://example.com/mods/refined_mod" #optional
+# A file name (in the root of the mod JAR) containing a logo for display
+#logoFile="refined_mod_logo.png" #optional
+# A text field displayed in the mod UI
+credits="Developed by Refined Rain" #optional
+# A text field displayed in the mod UI
 authors="Refined Rain" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+This is a test mod for refining the gameplay experience.
+'''
 
-description='''${mod_description}'''
-
-[[dependencies.${mod_id}]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="${forge_version_range}" #mandatory
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-modId="irons_spellbooks" #mandatory
-mandatory = true #mandatory
-versionRange = "[1.0,),[SNAPSHOT,)" #mandatory
-ordering = "AFTER"
-side = "BOTH"
-[[dependencies.${mod_id}]]
-modId="playeranimator" #mandatory
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.refined_mod]] #optional
+# the modid of the dependency
+modId="forge" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
 mandatory=true #mandatory
-versionRange="1.0.2" #mandatory
+# The version range of the dependency
+versionRange="[1.0,)" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT, or SERVER
+side="BOTH"
+[[dependencies.refined_mod]]
+modId="irons_spellbooks" #mandatory
+mandatory=true #mandatory
+versionRange="[1.0,),[SNAPSHOT,)" #mandatory
 ordering="AFTER"
 side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.refined_mod]]
+modId="playeranimator" #mandatory
+mandatory=true #mandatory
+versionRange="[1.0.2-rc1+1.20,)" #mandatory
+ordering="AFTER"
+side="BOTH"
+[[dependencies.refined_mod]]
 modId="geckolib" #mandatory
 mandatory=true #mandatory
 versionRange="[4.1.3,)" #mandatory
 ordering="NONE"
 side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.refined_mod]]
 modId="curios" #mandatory
 mandatory=true #mandatory
 versionRange="[1.19.2-5.1.3.0,)" #mandatory
 ordering="NONE"
 side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.refined_mod]]
 modId="caelus" #mandatory
 mandatory=true #mandatory
 versionRange="[1.19.2-3.0.0.6,)" #mandatory
 ordering="NONE"
 side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+[[dependencies.refined_mod]]
+modId="minecraft" #mandatory
+mandatory=true #mandatory
+versionRange="[1.16.5,)" #mandatory
+ordering="NONE"
+side="BOTH"
